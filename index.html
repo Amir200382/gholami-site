@@ -3,37 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>مهندس محمد غلامی | کارشناس رسمی راه و ساختمان</title>
-  <meta name="description" content="کارشناس رسمی رشته راه و ساختمان؛ تأمین دلیل، ارزیابی خسارت، متره و برآورد، اجرت‌المثل، ارزیابی ملک، سرقفلی، شهرسازی و اختلافات پیمانکاری." />
+  <title>مهندس محمد غلامی | کارشناس رسمی دادگستری راه و ساختمان</title>
+  <meta name="description" content="خدمات کارشناسی رسمی دادگستری در رشته راه و ساختمان؛ تأمین دلیل، تبیین وضعیت ابنیه، متره و برآورد، ارزیابی خسارت، تعیین اجرت‌المثل، ارزیابی ملک، سرقفلی، شهرسازی و اختلافات پیمانکاری." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
   <style>
-    @font-face {
-      font-family: "Ravi";
-      src:
-        url("./fonts/RaviVF.woff2") format("woff2-variations"),
-        url("./fonts/Ravi-Regular.woff2") format("woff2");
-      font-weight: 100 900;
-      font-display: swap;
-    }
-
     :root {
-      --ink: #111820;
-      --deep: #0b1118;
-      --navy: #142236;
-      --blue: #1f3a5b;
-      --gold: #c5a15a;
-      --cream: #f4efe5;
-      --paper: #fbf8f1;
-      --muted: #69717c;
-      --line: rgba(17, 24, 32, .12);
-      --line-dark: rgba(255, 255, 255, .14);
-      --white: #fff;
-      --radius: 28px;
-      --shadow: 0 28px 80px rgba(17, 24, 32, .16);
+      --ink: #101820;
+      --navy: #111e2e;
+      --navy-2: #172940;
+      --gold: #b89252;
+      --paper: #f7f2e8;
+      --cream: #ece2d2;
+      --white: #ffffff;
+      --muted: #68727f;
+      --line: rgba(16, 24, 32, .12);
+      --line-dark: rgba(255,255,255,.13);
+      --shadow: 0 24px 70px rgba(16, 24, 32, .13);
+      --radius: 24px;
       --ease: cubic-bezier(.2, .75, .25, 1);
     }
 
@@ -45,15 +35,29 @@
 
     html {
       scroll-behavior: smooth;
-      font-family: "Ravi", "Vazirmatn", sans-serif;
+      font-family: "Vazirmatn", "IRANSans", "Yekan Bakh", Tahoma, sans-serif;
+      font-size: 16px;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     body {
-      min-height: 100vh;
       color: var(--ink);
       background: var(--paper);
-      line-height: 1.85;
+      font-size: clamp(1rem, .96rem + .18vw, 1.075rem);
+      line-height: 1.95;
+      font-weight: 400;
       overflow-x: hidden;
+    }
+
+    p,
+    li,
+    span,
+    input,
+    select,
+    textarea {
+      letter-spacing: -.006em;
     }
 
     a {
@@ -63,16 +67,13 @@
 
     button,
     input,
-    textarea {
+    textarea,
+    select {
       font: inherit;
     }
 
-    button {
-      cursor: pointer;
-    }
-
     .container {
-      width: min(1140px, calc(100% - 40px));
+      width: min(1120px, calc(100% - 40px));
       margin-inline: auto;
     }
 
@@ -81,13 +82,14 @@
       align-items: center;
       gap: 10px;
       color: var(--gold);
-      font-size: .86rem;
+      font-size: clamp(.82rem, .79rem + .12vw, .9rem);
+      line-height: 1.7;
       font-weight: 800;
     }
 
     .eyebrow::before {
       content: "";
-      width: 34px;
+      width: 30px;
       height: 1px;
       background: currentColor;
     }
@@ -96,14 +98,13 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      min-height: 52px;
+      min-height: 48px;
       padding: 0 24px;
       border: 1px solid transparent;
       border-radius: 999px;
-      font-weight: 850;
-      white-space: nowrap;
-      transition: transform .24s var(--ease), background .24s var(--ease), color .24s var(--ease), border-color .24s var(--ease);
+      font-size: .96rem;
+      font-weight: 800;
+      transition: transform .22s var(--ease), background .22s var(--ease), border-color .22s var(--ease);
     }
 
     .btn:hover {
@@ -111,89 +112,97 @@
     }
 
     .btn-primary {
-      color: var(--deep);
+      color: var(--navy);
       background: var(--gold);
-      box-shadow: 0 16px 34px rgba(197, 161, 90, .24);
+      box-shadow: 0 14px 30px rgba(184, 146, 82, .24);
     }
 
-    .btn-soft {
+    .btn-ghost {
       color: var(--white);
-      border-color: rgba(255,255,255,.24);
-      background: rgba(255,255,255,.08);
-      backdrop-filter: blur(14px);
+      border-color: rgba(255,255,255,.26);
+      background: rgba(255,255,255,.075);
+      backdrop-filter: blur(12px);
     }
 
     .site-header {
       position: fixed;
-      inset: 18px 0 auto;
-      z-index: 40;
+      inset: 16px 0 auto;
+      z-index: 50;
       pointer-events: none;
     }
 
     .nav {
-      width: min(1140px, calc(100% - 40px));
-      min-height: 70px;
+      width: min(1120px, calc(100% - 40px));
+      min-height: 66px;
       margin-inline: auto;
-      padding: 12px 14px;
+      padding: 10px 12px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 18px;
       color: var(--white);
-      border: 1px solid rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.16);
       border-radius: 999px;
-      background: rgba(11, 17, 24, .38);
-      box-shadow: 0 18px 54px rgba(0, 0, 0, .18);
+      background: rgba(17, 30, 46, .43);
+      box-shadow: 0 16px 44px rgba(0,0,0,.15);
       backdrop-filter: blur(18px);
       pointer-events: auto;
-      transition: background .24s var(--ease), color .24s var(--ease), border-color .24s var(--ease);
+      transition: color .2s var(--ease), background .2s var(--ease), border-color .2s var(--ease);
     }
 
     .site-header.is-scrolled .nav {
       color: var(--ink);
-      border-color: rgba(17,24,32,.1);
-      background: rgba(251, 248, 241, .92);
+      background: rgba(247, 242, 232, .94);
+      border-color: rgba(16,24,32,.1);
     }
 
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
+      gap: 11px;
       min-width: max-content;
-      font-weight: 900;
+      font-size: .98rem;
+      font-weight: 800;
     }
 
     .brand-mark {
-      width: 44px;
-      height: 44px;
+      width: 42px;
+      height: 42px;
       display: grid;
       place-items: center;
       border-radius: 50%;
-      color: var(--deep);
+      color: var(--navy);
       background: var(--gold);
-      font-weight: 900;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.28), 0 10px 22px rgba(184,146,82,.22);
+    }
+
+    .brand-mark svg {
+      width: 23px;
+      height: 23px;
+      display: block;
+      stroke: currentColor;
     }
 
     .brand small {
       display: block;
       margin-top: -4px;
-      color: currentColor;
       opacity: .68;
-      font-size: .72rem;
+      font-size: .74rem;
+      line-height: 1.65;
       font-weight: 600;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 22px;
       list-style: none;
-      font-size: .92rem;
-      font-weight: 750;
+      font-size: .93rem;
+      font-weight: 700;
     }
 
     .nav-links a {
-      opacity: .78;
+      opacity: .76;
       transition: opacity .2s var(--ease), color .2s var(--ease);
     }
 
@@ -204,27 +213,23 @@
 
     .menu-toggle {
       display: none;
-      width: 46px;
-      height: 46px;
+      width: 44px;
+      height: 44px;
       border: 1px solid rgba(255,255,255,.18);
       border-radius: 50%;
       color: inherit;
       background: rgba(255,255,255,.08);
-    }
-
-    .site-header.is-scrolled .menu-toggle {
-      border-color: rgba(17,24,32,.12);
-      background: rgba(17,24,32,.04);
+      cursor: pointer;
     }
 
     .hero {
       position: relative;
-      min-height: 100svh;
+      min-height: 88svh;
       display: grid;
-      align-items: end;
+      align-items: center;
       color: var(--white);
       overflow: hidden;
-      background: var(--deep);
+      background: var(--navy);
     }
 
     .hero::before {
@@ -232,10 +237,8 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(270deg, rgba(11, 17, 24, .94) 0%, rgba(11, 17, 24, .72) 42%, rgba(11, 17, 24, .22) 100%),
-        url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2200&q=86") center / cover;
-      transform: scale(1.04);
-      animation: heroSettle 16s var(--ease) forwards;
+        linear-gradient(270deg, rgba(17,30,46,.96), rgba(17,30,46,.75) 44%, rgba(17,30,46,.24)),
+        url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2200&q=84") center / cover;
     }
 
     .hero::after {
@@ -243,134 +246,149 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(rgba(255,255,255,.052) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.052) 1px, transparent 1px);
-      background-size: 72px 72px;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,.85), transparent 75%);
-      opacity: .7;
-    }
-
-    @keyframes heroSettle {
-      to { transform: scale(1); }
+        linear-gradient(rgba(255,255,255,.046) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.046) 1px, transparent 1px);
+      background-size: 68px 68px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.9), transparent 78%);
+      opacity: .6;
     }
 
     .hero-inner {
       position: relative;
-      z-index: 2;
-      width: min(1140px, calc(100% - 40px));
+      z-index: 1;
+      width: min(1120px, calc(100% - 40px));
       margin-inline: auto;
-      padding: 144px 0 58px;
+      padding: 126px 0 52px;
     }
 
     .hero-copy {
-      width: min(760px, 100%);
-      opacity: 0;
-      transform: translateY(22px);
-      animation: riseIn .75s var(--ease) .12s forwards;
+      width: min(720px, 100%);
     }
 
-    @keyframes riseIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    h1 {
+      max-width: 760px;
+      margin-top: 16px;
+      font-size: clamp(2.05rem, 4.05vw, 3.7rem);
+      line-height: 1.23;
+      letter-spacing: -.03em;
+      font-weight: 900;
+      text-wrap: balance;
     }
 
-    .hero h1 {
-      margin-top: 18px;
-      font-size: clamp(2.35rem, 5.4vw, 5.15rem);
-      line-height: 1.08;
-      letter-spacing: -.035em;
-      font-weight: 950;
-    }
-
-    .hero h1 span {
+    h1 span {
       color: var(--gold);
     }
 
     .hero-lead {
-      width: min(660px, 100%);
-      margin-top: 22px;
-      color: rgba(255,255,255,.75);
-      font-size: clamp(1rem, 1.55vw, 1.16rem);
+      max-width: 660px;
+      margin-top: 20px;
+      color: rgba(255,255,255,.79);
+      font-size: clamp(1.02rem, 1.18vw, 1.16rem);
+      line-height: 2;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 32px;
+      margin-top: 30px;
     }
 
-    .hero-facts {
+    .fact-bar {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      width: min(830px, 100%);
-      margin-top: 48px;
+      width: min(820px, 100%);
+      margin-top: 38px;
       overflow: hidden;
       border: 1px solid rgba(255,255,255,.14);
-      border-radius: 26px;
-      background: rgba(255,255,255,.1);
-      backdrop-filter: blur(16px);
+      border-radius: 22px;
+      background: rgba(255,255,255,.09);
+      backdrop-filter: blur(14px);
     }
 
     .fact {
-      padding: 22px;
+      padding: 18px 20px;
       border-inline-start: 1px solid rgba(255,255,255,.1);
     }
 
     .fact:first-child {
-      border-inline-start: none;
+      border-inline-start: 0;
     }
 
     .fact strong {
       display: block;
       color: var(--white);
-      font-size: clamp(1.1rem, 1.8vw, 1.55rem);
-      line-height: 1.35;
+      font-size: 1.04rem;
+      font-weight: 800;
     }
 
     .fact span {
       display: block;
-      margin-top: 8px;
+      margin-top: 4px;
       color: rgba(255,255,255,.62);
-      font-size: .86rem;
+      font-size: .9rem;
+      line-height: 1.8;
     }
 
     .section {
-      padding: 94px 0;
+      padding: 82px 0;
     }
 
     .section-head {
       display: grid;
-      grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
-      gap: 54px;
+      grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+      gap: 46px;
       align-items: end;
-      margin-bottom: 48px;
+      margin-bottom: 38px;
     }
 
     .section-head h2 {
-      margin-top: 14px;
+      margin-top: 12px;
       color: var(--ink);
-      font-size: clamp(1.85rem, 3.25vw, 3.35rem);
-      line-height: 1.18;
-      letter-spacing: -.026em;
-      font-weight: 950;
+      font-size: clamp(1.62rem, 2.35vw, 2.42rem);
+      line-height: 1.35;
+      letter-spacing: -.024em;
+      font-weight: 800;
+      text-wrap: balance;
     }
 
     .section-head p {
-      max-width: 580px;
+      max-width: 590px;
       color: var(--muted);
-      font-size: 1.02rem;
+      font-size: 1rem;
+      line-height: 2;
     }
 
-    .pathways {
-      background: var(--paper);
-    }
-
-    .path-grid {
+    .intro-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .intro-panel {
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.72);
+      box-shadow: var(--shadow);
+    }
+
+    .intro-panel h3 {
+      font-size: clamp(1.18rem, 1.28vw, 1.36rem);
+      line-height: 1.6;
+      font-weight: 800;
+    }
+
+    .intro-panel p {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: .98rem;
+      line-height: 2;
+    }
+
+    .mini-list {
+      display: grid;
       gap: 1px;
       overflow: hidden;
       border: 1px solid var(--line);
@@ -379,433 +397,327 @@
       box-shadow: var(--shadow);
     }
 
-    .path-item {
-      min-height: 370px;
-      padding: 30px;
-      background: linear-gradient(180deg, #fff 0%, #f8f3e9 100%);
-      transition: transform .24s var(--ease), background .24s var(--ease);
+    .mini-item {
+      padding: 22px;
+      background: rgba(255,255,255,.72);
     }
 
-    .path-item:hover {
-      transform: translateY(-4px);
-      background: #fff;
+    .mini-item strong {
+      display: block;
+      font-size: 1.03rem;
+      font-weight: 800;
     }
 
-    .path-number {
-      width: 48px;
-      height: 48px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      color: var(--deep);
-      background: var(--gold);
-      font-weight: 900;
-    }
-
-    .path-item h3 {
-      margin-top: 56px;
-      color: var(--ink);
-      font-size: 1.32rem;
-      line-height: 1.45;
-      font-weight: 900;
-    }
-
-    .path-item p {
-      margin-top: 14px;
+    .mini-item span {
+      display: block;
+      margin-top: 6px;
       color: var(--muted);
-      font-size: .96rem;
+      font-size: .95rem;
+      line-height: 1.9;
     }
 
-    .path-list {
-      display: grid;
-      gap: 8px;
-      margin-top: 22px;
-      list-style: none;
-      color: var(--ink);
-      font-size: .92rem;
-      font-weight: 700;
-    }
-
-    .path-list li {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .path-list li::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--gold);
-    }
-
-    .credentials {
-      position: relative;
+    .expertise {
       color: var(--white);
-      overflow: hidden;
       background:
-        radial-gradient(circle at 82% 12%, rgba(197,161,90,.22), transparent 32%),
-        linear-gradient(135deg, #0b1118 0%, #142236 58%, #0f1a29 100%);
+        radial-gradient(circle at 82% 10%, rgba(184,146,82,.2), transparent 30%),
+        linear-gradient(135deg, #101820 0%, #172940 100%);
     }
 
-    .credentials::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
-      background-size: 64px 64px;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,.9), rgba(0,0,0,.22));
-      pointer-events: none;
-    }
-
-    .credentials .container {
-      position: relative;
-      z-index: 1;
-    }
-
-    .credentials .section-head h2 {
+    .expertise .section-head h2 {
       color: var(--white);
     }
 
-    .credentials .section-head p {
-      color: rgba(255,255,255,.68);
+    .expertise .section-head p {
+      color: rgba(255,255,255,.67);
     }
 
     .scope-row {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-      margin: -18px 0 34px;
+      gap: 12px;
+      margin-bottom: 28px;
     }
 
     .scope-box {
-      padding: 18px 22px;
-      border: 1px solid rgba(197,161,90,.32);
-      border-radius: 22px;
-      background: rgba(197,161,90,.1);
-      backdrop-filter: blur(14px);
+      padding: 16px 18px;
+      border: 1px solid rgba(184,146,82,.34);
+      border-radius: 18px;
+      background: rgba(184,146,82,.11);
     }
 
     .scope-box strong {
       display: block;
       color: var(--white);
-      font-size: 1.03rem;
+      font-weight: 800;
     }
 
     .scope-box span {
       display: block;
-      margin-top: 4px;
+      margin-top: 3px;
       color: rgba(255,255,255,.62);
-      font-size: .92rem;
+      font-size: .93rem;
+      line-height: 1.8;
     }
 
-    .expertise-layout {
+    .qualification-shell {
       display: grid;
-      grid-template-columns: 330px minmax(0, 1fr);
+      grid-template-columns: minmax(250px, .72fr) minmax(0, 1.28fr);
       gap: 18px;
       align-items: start;
     }
 
-    .expertise-tabs {
+    .qualification-note {
       position: sticky;
       top: 112px;
+      padding: 24px;
+      border: 1px solid var(--line-dark);
+      border-radius: 22px;
+      background: rgba(255,255,255,.065);
+      backdrop-filter: blur(14px);
+    }
+
+    .qualification-note h3 {
+      font-size: 1.18rem;
+      line-height: 1.65;
+      font-weight: 800;
+    }
+
+    .qualification-note p {
+      margin-top: 10px;
+      color: rgba(255,255,255,.66);
+      font-size: .95rem;
+      line-height: 2;
+    }
+
+    .qualification-groups {
       display: grid;
       gap: 10px;
     }
 
-    .tab-btn {
-      width: 100%;
+    details {
+      border: 1px solid var(--line-dark);
+      border-radius: 20px;
+      background: rgba(255,255,255,.055);
+      overflow: hidden;
+      backdrop-filter: blur(14px);
+    }
+
+    details[open] {
+      background: rgba(255,255,255,.08);
+      border-color: rgba(184,146,82,.42);
+    }
+
+    summary {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      padding: 16px 18px;
-      border: 1px solid rgba(255,255,255,.14);
-      border-radius: 18px;
-      color: rgba(255,255,255,.72);
-      background: rgba(255,255,255,.055);
-      text-align: right;
-      font-weight: 850;
-      transition: background .22s var(--ease), color .22s var(--ease), border-color .22s var(--ease);
-    }
-
-    .tab-btn span {
-      color: var(--gold);
-      font-size: .78rem;
-    }
-
-    .tab-btn.is-active,
-    .tab-btn:hover {
-      color: var(--white);
-      border-color: rgba(197,161,90,.42);
-      background: rgba(197,161,90,.13);
-    }
-
-    .expertise-panel {
-      min-height: 520px;
-      padding: 34px;
-      border: 1px solid rgba(255,255,255,.14);
-      border-radius: 30px;
-      background: rgba(255,255,255,.07);
-      backdrop-filter: blur(16px);
-      box-shadow: 0 30px 80px rgba(0,0,0,.16);
-    }
-
-    .panel-content {
-      display: none;
-      animation: fadePanel .28s var(--ease);
-    }
-
-    .panel-content.is-active {
-      display: block;
-    }
-
-    @keyframes fadePanel {
-      from {
-        opacity: 0;
-        transform: translateY(8px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .panel-kicker {
-      color: var(--gold);
-      font-weight: 900;
-      font-size: .9rem;
-    }
-
-    .panel-content h3 {
-      max-width: 720px;
-      margin-top: 10px;
-      color: var(--white);
-      font-size: clamp(1.6rem, 2.4vw, 2.35rem);
-      line-height: 1.25;
-      font-weight: 950;
-      letter-spacing: -.02em;
-    }
-
-    .panel-content p {
-      max-width: 720px;
-      margin-top: 12px;
-      color: rgba(255,255,255,.66);
-      font-size: .98rem;
-    }
-
-    .qualification-list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 28px;
+      gap: 18px;
+      padding: 18px 20px;
+      cursor: pointer;
       list-style: none;
-    }
-
-    .qualification-list li {
-      position: relative;
-      min-height: 104px;
-      padding: 18px 18px 18px 20px;
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 20px;
-      color: rgba(255,255,255,.78);
-      background: rgba(255,255,255,.045);
-      font-size: .93rem;
+      font-size: 1rem;
       line-height: 1.75;
+      font-weight: 800;
+      color: var(--white);
     }
 
-    .qualification-list li::before {
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary span {
+      color: var(--gold);
+      font-size: .84rem;
+      font-weight: 900;
+    }
+
+    .q-list {
+      display: grid;
+      gap: 10px;
+      padding: 0 20px 20px;
+      list-style: none;
+      color: rgba(255,255,255,.72);
+      font-size: .95rem;
+    }
+
+    .q-list li {
+      position: relative;
+      padding-inline-start: 18px;
+      line-height: 1.95;
+    }
+
+    html[dir="rtl"] .q-list li {
+      padding-inline: 0 18px;
+    }
+
+    .q-list li::before {
       content: "";
       position: absolute;
-      inset-inline-start: 18px;
-      inset-block-start: 18px;
-      width: 7px;
-      height: 7px;
+      inset-inline-start: 0;
+      top: .72em;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
       background: var(--gold);
-      box-shadow: 0 0 0 5px rgba(197,161,90,.12);
     }
 
-    .qualification-list li {
-      padding-inline-start: 36px;
-    }
-
-    html[dir="rtl"] .qualification-list li {
-      padding-inline: 18px 36px;
-    }
-
-    html[dir="rtl"] .qualification-list li::before {
+    html[dir="rtl"] .q-list li::before {
       inset-inline-start: auto;
-      inset-inline-end: 18px;
+      inset-inline-end: 0;
     }
 
     .process {
       background: var(--cream);
     }
 
-    .process-wrap {
+    .process-layout {
       display: grid;
-      grid-template-columns: minmax(0, .86fr) minmax(0, 1.14fr);
-      gap: 34px;
+      grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr);
+      gap: 18px;
       align-items: stretch;
     }
 
     .process-card {
       min-height: 100%;
-      padding: 34px;
-      border-radius: 30px;
+      padding: 28px;
+      border-radius: var(--radius);
       color: var(--white);
       background:
-        linear-gradient(rgba(11,17,24,.8), rgba(11,17,24,.88)),
+        linear-gradient(rgba(17,30,46,.84), rgba(17,30,46,.9)),
         url("https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=84") center / cover;
       box-shadow: var(--shadow);
     }
 
     .process-card h3 {
-      margin-top: 16px;
-      font-size: clamp(1.75rem, 3vw, 2.65rem);
-      line-height: 1.2;
-      letter-spacing: -.02em;
-      font-weight: 950;
+      margin-top: 14px;
+      font-size: clamp(1.35rem, 2.15vw, 2.05rem);
+      line-height: 1.42;
+      font-weight: 800;
+      text-wrap: balance;
     }
 
     .process-card p {
-      margin-top: 16px;
+      margin-top: 12px;
       color: rgba(255,255,255,.7);
+      font-size: .98rem;
+      line-height: 2;
     }
 
-    .doc-chips {
+    .doc-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 28px;
+      margin-top: 24px;
     }
 
-    .doc-chips span {
-      padding: 8px 12px;
-      border: 1px solid rgba(255,255,255,.14);
+    .doc-tags span {
+      padding: 7px 11px;
+      border: 1px solid rgba(255,255,255,.15);
       border-radius: 999px;
-      color: rgba(255,255,255,.78);
+      color: rgba(255,255,255,.76);
       background: rgba(255,255,255,.07);
-      font-size: .82rem;
+      font-size: .84rem;
+      line-height: 1.7;
     }
 
-    .steps {
+    .timeline {
       display: grid;
-      gap: 12px;
-      counter-reset: step;
+      gap: 10px;
     }
 
-    .step {
+    .timeline-step {
       display: grid;
-      grid-template-columns: 72px 1fr;
-      gap: 18px;
+      grid-template-columns: 62px 1fr;
+      gap: 16px;
       align-items: start;
-      min-height: 128px;
-      padding: 22px;
+      padding: 18px;
       border: 1px solid var(--line);
-      border-radius: 24px;
-      background: rgba(255,255,255,.62);
-      transition: transform .22s var(--ease), background .22s var(--ease), border-color .22s var(--ease);
+      border-radius: 20px;
+      background: rgba(255,255,255,.68);
+      transition: background .2s var(--ease), transform .2s var(--ease);
     }
 
-    .step:hover {
-      transform: translateY(-3px);
-      border-color: rgba(197,161,90,.42);
-      background: #fff;
+    html[dir="rtl"] .timeline-step {
+      grid-template-columns: 1fr 62px;
     }
 
-    .step-num {
-      width: 72px;
-      height: 72px;
+    .timeline-step:hover {
+      transform: translateY(-2px);
+      background: var(--white);
+    }
+
+    .step-number {
+      width: 62px;
+      height: 62px;
       display: grid;
       place-items: center;
       border-radius: 50%;
-      color: var(--deep);
+      color: var(--navy);
       background: var(--gold);
-      font-size: 1.25rem;
-      font-weight: 950;
-    }
-
-    .step h3 {
-      font-size: 1.13rem;
-      line-height: 1.4;
+      font-size: 1.08rem;
       font-weight: 900;
     }
 
-    .step p {
-      margin-top: 6px;
-      color: var(--muted);
-      font-size: .94rem;
+    html[dir="rtl"] .step-number {
+      grid-column: 2;
     }
 
-    .note {
-      position: relative;
-      color: var(--white);
-      overflow: hidden;
-      background: var(--deep);
-    }
-
-    .note::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(270deg, rgba(11,17,24,.94), rgba(11,17,24,.78), rgba(11,17,24,.36)),
-        url("https://images.unsplash.com/photo-1508450859948-4e04fabaa4ea?auto=format&fit=crop&w=2200&q=86") center / cover fixed;
-    }
-
-    .note-inner {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, .82fr);
-      gap: 56px;
-      align-items: center;
-    }
-
-    .note h2 {
-      margin-top: 16px;
-      font-size: clamp(2rem, 3.8vw, 3.75rem);
-      line-height: 1.14;
-      letter-spacing: -.028em;
-      font-weight: 950;
-    }
-
-    .note p {
-      margin-top: 20px;
-      color: rgba(255,255,255,.72);
-      font-size: 1.02rem;
-    }
-
-    .note-points {
-      display: grid;
-      gap: 1px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,.14);
-      border-radius: 28px;
-      background: rgba(255,255,255,.12);
-      backdrop-filter: blur(16px);
-    }
-
-    .note-point {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 24px;
-      background: rgba(11,17,24,.44);
-      color: rgba(255,255,255,.78);
+    .timeline-step h3 {
+      font-size: 1.06rem;
+      line-height: 1.65;
       font-weight: 800;
     }
 
-    .note-point strong {
+    .timeline-step p {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: .94rem;
+      line-height: 1.95;
+    }
+
+    .confidence {
+      color: var(--white);
+      background:
+        linear-gradient(270deg, rgba(17,30,46,.94), rgba(17,30,46,.78), rgba(17,30,46,.42)),
+        url("https://images.unsplash.com/photo-1508450859948-4e04fabaa4ea?auto=format&fit=crop&w=2200&q=84") center / cover;
+    }
+
+    .confidence .section-head h2 {
+      color: var(--white);
+    }
+
+    .confidence .section-head p {
+      color: rgba(255,255,255,.7);
+    }
+
+    .confidence-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 22px;
+      background: rgba(255,255,255,.13);
+      backdrop-filter: blur(14px);
+    }
+
+    .confidence-list div {
+      min-height: 120px;
+      padding: 22px;
+      background: rgba(17,30,46,.5);
+      color: rgba(255,255,255,.78);
+      font-size: .98rem;
+      line-height: 1.95;
+      font-weight: 700;
+    }
+
+    .confidence-list strong {
+      display: block;
+      margin-bottom: 6px;
       color: var(--gold);
-      font-size: 2rem;
+      font-size: 1.35rem;
       line-height: 1;
+      font-weight: 800;
     }
 
     .contact {
@@ -814,74 +726,61 @@
 
     .contact-box {
       display: grid;
-      grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr);
+      grid-template-columns: minmax(0, .86fr) minmax(0, 1.14fr);
       gap: 1px;
       overflow: hidden;
       border: 1px solid var(--line);
-      border-radius: 30px;
+      border-radius: 26px;
       background: var(--line);
       box-shadow: var(--shadow);
     }
 
     .contact-info,
     .contact-form {
-      padding: clamp(28px, 5vw, 54px);
-      background: #fff;
+      padding: clamp(24px, 4vw, 44px);
+      background: var(--white);
     }
 
     .contact-info {
       color: var(--white);
       background:
-        linear-gradient(rgba(20,34,54,.92), rgba(20,34,54,.92)),
-        url("https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=86") center / cover;
+        linear-gradient(rgba(17,30,46,.92), rgba(17,30,46,.92)),
+        url("https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=84") center / cover;
     }
 
     .contact-info h2 {
       margin-top: 12px;
-      font-size: clamp(1.85rem, 3vw, 3rem);
-      line-height: 1.18;
-      letter-spacing: -.025em;
-      font-weight: 950;
+      font-size: clamp(1.42rem, 2.2vw, 2.1rem);
+      line-height: 1.45;
+      font-weight: 800;
+      text-wrap: balance;
     }
 
     .contact-info p {
-      margin-top: 16px;
-      color: rgba(255,255,255,.72);
+      margin-top: 12px;
+      color: rgba(255,255,255,.7);
+      font-size: .98rem;
+      line-height: 2;
     }
 
     .contact-lines {
       display: grid;
-      gap: 14px;
-      margin-top: 32px;
-    }
-
-    .contact-line {
-      display: flex;
-      align-items: center;
       gap: 12px;
-      color: rgba(255,255,255,.86);
-    }
-
-    .contact-line span:first-child {
-      width: 38px;
-      height: 38px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      color: var(--deep);
-      background: var(--gold);
-      font-weight: 900;
+      margin-top: 26px;
+      color: rgba(255,255,255,.84);
+      font-size: .96rem;
+      line-height: 1.9;
     }
 
     .form-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
+      gap: 14px;
     }
 
     .field {
       display: grid;
-      gap: 8px;
+      gap: 7px;
     }
 
     .field.full {
@@ -889,67 +788,63 @@
     }
 
     label {
-      color: var(--ink);
       font-size: .9rem;
-      font-weight: 850;
+      font-weight: 700;
     }
 
     input,
-    textarea,
-    select {
+    select,
+    textarea {
       width: 100%;
-      min-height: 52px;
+      min-height: 50px;
       border: 1px solid var(--line);
-      border-radius: 18px;
+      border-radius: 16px;
       outline: none;
       color: var(--ink);
-      background: #f7f2e8;
-      padding: 14px 16px;
-      transition: border-color .22s var(--ease), background .22s var(--ease), box-shadow .22s var(--ease);
+      background: #f7f1e7;
+      padding: 13px 15px;
+      font-size: .96rem;
+      line-height: 1.8;
     }
 
     textarea {
-      min-height: 140px;
+      min-height: 132px;
       resize: vertical;
     }
 
     input:focus,
-    textarea:focus,
-    select:focus {
-      border-color: rgba(197,161,90,.72);
+    select:focus,
+    textarea:focus {
+      border-color: rgba(184,146,82,.72);
       background: #fff;
-      box-shadow: 0 0 0 4px rgba(197,161,90,.14);
+      box-shadow: 0 0 0 4px rgba(184,146,82,.14);
     }
 
     .contact-form .btn {
       width: 100%;
-      margin-top: 18px;
-      border: none;
+      margin-top: 16px;
+      border: 0;
     }
 
     .footer {
-      padding: 42px 0;
+      padding: 34px 0;
       color: rgba(255,255,255,.68);
-      background: var(--deep);
-    }
-
-    .footer-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 24px;
-      align-items: center;
+      background: var(--navy);
+      font-size: .94rem;
+      line-height: 1.9;
     }
 
     .footer strong {
       display: block;
       color: var(--white);
-      font-size: 1.08rem;
+      font-size: 1.02rem;
+      font-weight: 800;
     }
 
     .reveal {
       opacity: 0;
-      transform: translateY(24px);
-      transition: opacity .7s var(--ease), transform .7s var(--ease);
+      transform: translateY(18px);
+      transition: opacity .55s var(--ease), transform .55s var(--ease);
     }
 
     .reveal.is-visible {
@@ -957,9 +852,9 @@
       transform: translateY(0);
     }
 
-    @media (max-width: 980px) {
+    @media (max-width: 940px) {
       .nav {
-        border-radius: 28px;
+        border-radius: 24px;
       }
 
       .nav-links {
@@ -969,18 +864,17 @@
         gap: 0;
         overflow: hidden;
         border: 1px solid rgba(255,255,255,.16);
-        border-radius: 22px;
-        background: rgba(11,17,24,.94);
-        box-shadow: 0 24px 54px rgba(0,0,0,.22);
+        border-radius: 20px;
+        background: rgba(17,30,46,.96);
         transform: scaleY(.94);
         transform-origin: top;
         opacity: 0;
         pointer-events: none;
-        transition: opacity .22s var(--ease), transform .22s var(--ease);
+        transition: opacity .2s var(--ease), transform .2s var(--ease);
       }
 
       .site-header.is-scrolled .nav-links {
-        background: rgba(251,248,241,.98);
+        background: rgba(247,242,232,.98);
         border-color: var(--line);
       }
 
@@ -990,57 +884,40 @@
         pointer-events: auto;
       }
 
-      .nav-links li {
-        border-bottom: 1px solid rgba(255,255,255,.1);
-      }
-
-      .site-header.is-scrolled .nav-links li {
-        border-bottom-color: var(--line);
-      }
-
       .nav-links a {
         display: block;
-        padding: 15px 20px;
+        padding: 14px 18px;
       }
 
       .menu-toggle {
         display: block;
       }
 
-      .nav .btn {
+      .nav > .btn {
         display: none;
       }
 
-      .hero-facts,
+      .fact-bar,
       .section-head,
-      .path-grid,
+      .intro-grid,
       .scope-row,
-      .expertise-layout,
-      .process-wrap,
-      .note-inner,
+      .qualification-shell,
+      .process-layout,
+      .confidence-list,
       .contact-box {
         grid-template-columns: 1fr;
       }
 
-      .expertise-tabs {
+      .qualification-note {
         position: static;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .qualification-list {
-        grid-template-columns: 1fr;
-      }
-
-      .path-item {
-        min-height: auto;
       }
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 620px) {
       .container,
       .hero-inner,
       .nav {
-        width: min(100% - 28px, 1140px);
+        width: min(100% - 28px, 1120px);
       }
 
       .site-header {
@@ -1051,12 +928,28 @@
         display: none;
       }
 
-      .hero-inner {
-        padding-block: 128px 44px;
+      .hero {
+        min-height: auto;
       }
 
-      .hero h1 {
-        font-size: clamp(2.05rem, 13vw, 3.25rem);
+      .hero-inner {
+        padding: 118px 0 42px;
+      }
+
+      h1 {
+        font-size: clamp(1.82rem, 8.6vw, 2.48rem);
+        line-height: 1.32;
+      }
+
+      .hero-lead,
+      .section-head p,
+      .intro-panel p,
+      .mini-item span,
+      .q-list,
+      .process-card p,
+      .timeline-step p,
+      .contact-info p {
+        font-size: .96rem;
       }
 
       .hero-actions {
@@ -1064,77 +957,60 @@
         align-items: stretch;
       }
 
-      .hero-facts {
-        margin-top: 34px;
-      }
-
       .fact {
-        border-inline-start: none;
+        border-inline-start: 0;
         border-block-start: 1px solid rgba(255,255,255,.1);
       }
 
       .fact:first-child {
-        border-block-start: none;
+        border-block-start: 0;
       }
 
       .section {
-        padding: 74px 0;
+        padding: 64px 0;
       }
 
       .section-head {
-        gap: 18px;
-        margin-bottom: 32px;
+        gap: 14px;
+        margin-bottom: 28px;
       }
 
-      .expertise-tabs {
+      .timeline-step,
+      html[dir="rtl"] .timeline-step,
+      .form-grid {
         grid-template-columns: 1fr;
       }
 
-      .expertise-panel,
-      .process-card,
-      .contact-info,
-      .contact-form {
-        padding: 24px;
-      }
-
-      .step {
-        grid-template-columns: 1fr;
-      }
-
-      .form-grid,
-      .footer-row {
-        grid-template-columns: 1fr;
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .note::before {
-        background-attachment: scroll;
+      html[dir="rtl"] .step-number {
+        grid-column: 1;
       }
     }
   </style>
 </head>
 <body>
   <header class="site-header" id="site-header">
-    <nav class="nav" aria-label="ناوبری اصلی">
-      <a href="#home" class="brand">
-        <span class="brand-mark">غ</span>
-        <span>
-          <span>مهندس محمد غلامی</span>
-          <small>کارشناس رسمی رشته راه و ساختمان</small>
+    <nav class="nav">
+      <a class="brand" href="#home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 20h16" />
+            <path d="M5.5 20V9.5L12 5l6.5 4.5V20" />
+            <path d="M9 20v-6h6v6" />
+            <path d="M9.5 11h5" />
+            <path d="M12 5V3.2" />
+          </svg>
         </span>
+        <span>مهندس محمد غلامی<small>کارشناس رسمی دادگستری | راه و ساختمان</small></span>
       </a>
-
       <ul class="nav-links" id="nav-links">
         <li><a href="#home">خانه</a></li>
-        <li><a href="#pathways">مسیرها</a></li>
-        <li><a href="#credentials">صلاحیت‌ها</a></li>
+        <li><a href="#intro">معرفی</a></li>
+        <li><a href="#expertise">صلاحیت‌ها</a></li>
         <li><a href="#process">فرآیند</a></li>
         <li><a href="#contact">تماس</a></li>
       </ul>
-
-      <a class="btn btn-primary" href="#contact">درخواست بررسی</a>
-      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="باز کردن منو">☰</button>
+      <a class="btn btn-primary" href="#contact">ثبت درخواست بررسی</a>
+      <button class="menu-toggle" id="menu-toggle" type="button">☰</button>
     </nav>
   </header>
 
@@ -1142,166 +1018,113 @@
     <section class="hero" id="home">
       <div class="hero-inner">
         <div class="hero-copy">
-          <span class="eyebrow">کارشناس رسمی دادگستری | راه و ساختمان</span>
-          <h1>گزارش کارشناسی <span>دقیق</span> برای پرونده‌های ملکی، ساختمانی و عمرانی.</h1>
-          <p class="hero-lead">تأمین دلیل، تبیین وضعیت ابنیه، متره و برآورد، ارزیابی خسارت، تعیین اجرت‌المثل، ارزیابی ملک و رسیدگی تخصصی به اختلافات کارفرما، مشاور و پیمانکار.</p>
-
+          <span class="eyebrow">کارشناس رسمی دادگستری در رشته راه و ساختمان</span>
+          <h1>اظهارنظر کارشناسی <span>دقیق و مستند</span> برای پرونده‌های ملکی، ساختمانی و عمرانی</h1>
+          <p class="hero-lead">بررسی فنی، بازدید میدانی، ارزیابی خسارت، متره و برآورد، تعیین اجرت‌المثل، ارزیابی ملک و رسیدگی تخصصی به اختلافات پیمانکاری در حدود صلاحیت رسمی.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#contact">ارسال موضوع کارشناسی</a>
-            <a class="btn btn-soft" href="#credentials">مشاهده صلاحیت‌ها</a>
+            <a class="btn btn-primary" href="#contact">ثبت درخواست بررسی اولیه</a>
+            <a class="btn btn-ghost" href="#expertise">مشاهده صلاحیت‌ها</a>
           </div>
-
-          <div class="hero-facts" aria-label="مشخصات کارشناسی">
-            <div class="fact">
-              <strong>رشته کارشناسی</strong>
-              <span>راه و ساختمان</span>
-            </div>
-            <div class="fact">
-              <strong>حوزه جغرافیایی</strong>
-              <span>استان محل صدور پروانه</span>
-            </div>
-            <div class="fact">
-              <strong>خروجی کار</strong>
-              <span>بازدید، تحلیل، محاسبه و گزارش مستند</span>
-            </div>
+          <div class="fact-bar">
+            <div class="fact"><strong>رشته کارشناسی</strong><span>راه و ساختمان</span></div>
+            <div class="fact"><strong>حوزه صلاحیت جغرافیایی</strong><span>استان محل صدور پروانه</span></div>
+            <div class="fact"><strong>نحوه بررسی</strong><span>مطالعه مدارک، بازدید، محاسبه و جمع‌بندی فنی</span></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section pathways" id="pathways">
+    <section class="section" id="intro">
       <div class="container">
         <div class="section-head reveal">
           <div>
-            <span class="eyebrow">کاربردهای اصلی</span>
-            <h2>وقتی اختلاف یا تصمیم، به عدد و نظر فنی نیاز دارد.</h2>
+            <span class="eyebrow">کاربرد خدمات کارشناسی</span>
+            <h2>وقتی تصمیم حقوقی یا مالی به بررسی فنی قابل استناد نیاز دارد.</h2>
           </div>
-          <p>سایت به جای نمایش یک فهرست خشک، کاربر را از مسیر مسئله‌اش وارد می‌کند: وضعیت موجود باید ثبت شود؟ ارزش و خسارت باید محاسبه شود؟ یا اختلاف پیمانی و اجرایی نیاز به بررسی تخصصی دارد؟</p>
+          <p>در بسیاری از اختلافات ملکی، ساختمانی و عمرانی، نتیجه قابل اتکا زمانی به دست می‌آید که وضعیت موجود، مدارک، اندازه‌گیری‌ها و سوابق پروژه هم‌زمان بررسی شوند.</p>
         </div>
 
-        <div class="path-grid reveal">
-          <article class="path-item">
-            <span class="path-number">01</span>
-            <h3>ثبت وضعیت و تأمین دلیل</h3>
-            <p>برای زمانی که وضعیت فعلی ساختمان، پروژه یا کار انجام‌شده باید پیش از تغییر، تخریب، ادامه عملیات یا تشدید اختلاف ثبت و تبیین شود.</p>
-            <ul class="path-list">
-              <li>تبیین وضعیت ابنیه و ساختمان‌ها</li>
-              <li>تعیین پیشرفت فیزیکی</li>
-              <li>تشخیص حسن انجام کار</li>
-            </ul>
+        <div class="intro-grid reveal">
+          <article class="intro-panel">
+            <h3>کارشناسی رسمی یعنی تبدیل مشاهدات فنی به نظریه‌ای روشن، مستند و قابل پیگیری.</h3>
+            <p>در تأمین دلیل، وضعیت موجود و آثار قابل مشاهده پیش از تغییر یا از بین رفتن ثبت می‌شود. در ارزیابی خسارت، اجاره‌بها، اجرت‌المثل یا ارزش ملک، نتیجه باید بر پایه مشاهده، مدارک، مشخصات فیزیکی و عوامل مؤثر تنظیم شود.</p>
+            <p>هدف از بررسی اولیه این است که موضوع، مدارک لازم، حدود صلاحیت و مسیر انجام کار از ابتدا شفاف باشد.</p>
           </article>
 
-          <article class="path-item">
-            <span class="path-number">02</span>
-            <h3>ارزیابی، متره و برآورد</h3>
-            <p>برای پرونده‌هایی که نیاز به عدد دقیق دارند؛ از هزینه و خسارت تا اجاره‌بها، اجرت‌المثل، ارزش ملک، سرقفلی و حقوق مالی وابسته.</p>
-            <ul class="path-list">
-              <li>متره و برآورد هزینه‌ها</li>
-              <li>ارزیابی خسارت و اجرت‌المثل</li>
-              <li>ارزیابی ملک، اراضی و سرقفلی</li>
-            </ul>
-          </article>
-
-          <article class="path-item">
-            <span class="path-number">03</span>
-            <h3>اختلافات عمرانی و شهرسازی</h3>
-            <p>برای بررسی فنی اختلافات کارفرما، مشاور و پیمانکار، ضوابط شهرسازی، طرح‌های جامع، تفصیلی، هادی، راه‌ها و دسترسی‌ها.</p>
-            <ul class="path-list">
-              <li>اختلافات پیمانی و اجرایی</li>
-              <li>امور شهرسازی و اراضی</li>
-              <li>راه‌ها، باندها و دسترسی شهری</li>
-            </ul>
-          </article>
+          <div class="mini-list">
+            <div class="mini-item"><strong>تأمین دلیل و تبیین وضعیت</strong><span>ثبت و تشریح وضعیت ابنیه، ساختمان‌ها، طرح‌های عمرانی و عملیات اجراشده.</span></div>
+            <div class="mini-item"><strong>ارزیابی، متره و برآورد</strong><span>برآورد خسارت، هزینه، ارزش ملک، اجاره‌بها، اجرت‌المثل و حقوق مالی مرتبط.</span></div>
+            <div class="mini-item"><strong>اختلافات پروژه و پیمان</strong><span>بررسی فنی اختلافات کارفرما، مشاور و پیمانکار در امور تخصصی راه و ساختمان.</span></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section credentials" id="credentials">
+    <section class="section expertise" id="expertise">
       <div class="container">
         <div class="section-head reveal">
           <div>
-            <span class="eyebrow">صلاحیت‌های کارشناس</span>
-            <h2>صلاحیت‌ها دسته‌بندی شده‌اند تا سریع‌تر به موضوع پرونده برسید.</h2>
+            <span class="eyebrow">حدود صلاحیت رسمی</span>
+            <h2>صلاحیت‌ها بر اساس موضوع پرونده دسته‌بندی شده‌اند.</h2>
           </div>
-          <p>همه موارد بر اساس متن صلاحیت‌های رشته راه و ساختمان تنظیم شده‌اند؛ با ادبیات قابل فهم برای مالک، سازنده، وکیل، پیمانکار، مشاور و مرجع رسیدگی.</p>
+          <p>برای انتخاب مسیر درست، ابتدا باید مشخص شود موضوع در کدام حوزه قرار می‌گیرد: وضعیت ابنیه، خسارت، متره، ارزیابی ملک، شهرسازی، اراضی یا اختلافات پیمانی.</p>
         </div>
 
         <div class="scope-row reveal">
-          <div class="scope-box">
-            <strong>رشته کارشناسی</strong>
-            <span>راه و ساختمان</span>
-          </div>
-          <div class="scope-box">
-            <strong>حوزه صلاحیت جغرافیایی</strong>
-            <span>استان محل صدور پروانه</span>
-          </div>
+          <div class="scope-box"><strong>رشته کارشناسی</strong><span>راه و ساختمان</span></div>
+          <div class="scope-box"><strong>حوزه صلاحیت جغرافیایی</strong><span>استان محل صدور پروانه</span></div>
         </div>
 
-        <div class="expertise-layout reveal">
-          <div class="expertise-tabs" role="tablist" aria-label="گروه صلاحیت‌ها">
-            <button class="tab-btn is-active" type="button" data-tab="tab-condition">وضعیت و اجرا <span>01</span></button>
-            <button class="tab-btn" type="button" data-tab="tab-cost">خسارت و برآورد <span>02</span></button>
-            <button class="tab-btn" type="button" data-tab="tab-property">ملک و حقوق مالی <span>03</span></button>
-            <button class="tab-btn" type="button" data-tab="tab-urban">شهرسازی و راه <span>04</span></button>
-            <button class="tab-btn" type="button" data-tab="tab-contract">پیمان و اختلافات <span>05</span></button>
-          </div>
+        <div class="qualification-shell reveal">
+          <aside class="qualification-note">
+            <h3>تشخیص دقیق موضوع، شروع درست کارشناسی است.</h3>
+            <p>عبارت‌های زیر با حفظ مفهوم صلاحیت‌ها بازنویسی و دسته‌بندی شده‌اند تا مالک، وکیل، پیمانکار، مشاور یا مرجع رسیدگی سریع‌تر حوزه مرتبط را پیدا کند.</p>
+          </aside>
 
-          <div class="expertise-panel">
-            <div class="panel-content is-active" id="tab-condition">
-              <span class="panel-kicker">مشاهده، ثبت و تشخیص فنی</span>
-              <h3>برای زمانی که وضعیت موجود یا کیفیت اجرای کار باید روشن و مستند شود.</h3>
-              <p>این حوزه مناسب پرونده‌هایی است که موضوع اصلی، وضعیت فعلی ساختمان یا پروژه، میزان پیشرفت، کیفیت اجرا یا ثبت دلیل قبل از تغییر شرایط است.</p>
-              <ul class="qualification-list">
-                <li>تأمین دلیل، تبیین وضعیت ابنیه، ساختمان‌ها و طرح‌های عمرانی</li>
-                <li>تعیین پیشرفت فیزیکی ابنیه، ساختمان‌ها و طرح‌های عمرانی</li>
-                <li>تشخیص حسن انجام کارهای ساختمانی و طرح‌های عمرانی به لحاظ فنی و اجرایی</li>
+          <div class="qualification-groups">
+            <details open>
+              <summary>ابنیه، وضعیت موجود و کیفیت اجرا <span>01</span></summary>
+              <ul class="q-list">
+                <li>تأمین دلیل و تبیین وضعیت ابنیه، ساختمان‌ها و طرح‌های عمرانی</li>
+                <li>تعیین میزان پیشرفت فیزیکی ابنیه، ساختمان‌ها و طرح‌های عمرانی</li>
+                <li>تشخیص حسن انجام کارهای ساختمانی و طرح‌های عمرانی از نظر فنی و اجرایی</li>
               </ul>
-            </div>
+            </details>
 
-            <div class="panel-content" id="tab-cost">
-              <span class="panel-kicker">عدد، هزینه و خسارت</span>
-              <h3>برای پرونده‌هایی که باید میزان خسارت، هزینه یا اجرت‌المثل با مبنای فنی مشخص شود.</h3>
-              <p>در این گروه، بازدید و مدارک پروژه به برآورد قابل اتکا تبدیل می‌شود؛ چه برای خسارت، چه برای کارهای انجام‌شده، هزینه‌های ساختمانی یا اجاره‌بها.</p>
-              <ul class="qualification-list">
-                <li>ارزیابی و برآورد میزان خسارت در محدوده صلاحیت‌های اخذ شده</li>
+            <details>
+              <summary>خسارت، متره، برآورد و اجرت‌المثل <span>02</span></summary>
+              <ul class="q-list">
+                <li>ارزیابی و برآورد میزان خسارت در محدوده صلاحیت‌های اخذشده</li>
                 <li>متره و برآورد، برآورد هزینه‌ها و تعیین اجرت‌المثل کارهای ساختمانی و طرح‌های عمرانی</li>
                 <li>تعدیل و تعیین اجاره‌بها و اجرت‌المثل اجاره‌بها</li>
               </ul>
-            </div>
+            </details>
 
-            <div class="panel-content" id="tab-property">
-              <span class="panel-kicker">ارزش ملک، منافع و حقوق وابسته</span>
-              <h3>برای ارزیابی ساختمان، اراضی، سرقفلی، حق کسب‌وپیشه و دارایی‌های وابسته به ملک.</h3>
-              <p>این بخش برای پرونده‌هایی مناسب است که تصمیم‌گیری بر پایه ارزش ملک، اجاره، منافع، حقوق مالی یا کاربری ساختمان انجام می‌شود.</p>
-              <ul class="qualification-list">
-                <li>ارزیابی ساختمان‌های مسکونی و تعیین و تعدیل اجاره‌بها و اجرت‌المثل آن</li>
-                <li>ارزیابی اراضی و تعدیل و تعیین اجاره‌بها و اجرت‌المثل آن، به استثنای بخشی از اراضی کشاورزی و منابع طبیعی فاقد مستحدثات ساختمانی</li>
-                <li>ارزیابی ملکیت، سرقفلی، حق کسب و پیشه و تجارت و تعیین و تعدیل اجاره‌بها و اجرت‌المثل</li>
-                <li>ارزیابی انواع ساختمان‌ها و دارایی‌های نامشهود متعلق به آن با هر نوع کاربری و تعیین و تعدیل اجاره‌بها و اجرت‌المثل</li>
+            <details>
+              <summary>ارزیابی ملک، اراضی، سرقفلی و حقوق مالی <span>03</span></summary>
+              <ul class="q-list">
+                <li>ارزیابی ساختمان‌های مسکونی و تعیین یا تعدیل اجاره‌بها و اجرت‌المثل آن‌ها</li>
+                <li>ارزیابی اراضی و تعیین یا تعدیل اجاره‌بها و اجرت‌المثل آن‌ها، به‌استثنای موارد خارج از صلاحیت اعلام‌شده</li>
+                <li>ارزیابی ملکیت، سرقفلی، حق کسب و پیشه و تجارت و تعیین یا تعدیل اجاره‌بها و اجرت‌المثل</li>
+                <li>ارزیابی انواع ساختمان‌ها و دارایی‌های نامشهود متعلق به آن‌ها با هر نوع کاربری، همراه با تعیین یا تعدیل اجاره‌بها و اجرت‌المثل</li>
               </ul>
-            </div>
+            </details>
 
-            <div class="panel-content" id="tab-urban">
-              <span class="panel-kicker">ضوابط شهری، اراضی و دسترسی</span>
-              <h3>برای بررسی وضعیت ملک یا پروژه در نسبت با شهرسازی، اراضی، راه‌ها و دسترسی‌ها.</h3>
-              <p>در این حوزه، موضوعاتی مثل نوع زمین، ضوابط شهرسازی، طرح‌های مصوب و دسترسی‌های شهری یا عمرانی بررسی می‌شوند.</p>
-              <ul class="qualification-list">
-                <li>بررسی و اظهار نظر در امور و مقررات شهرسازی و طرح‌های جامع، تفصیلی و هادی</li>
+            <details>
+              <summary>شهرسازی، اراضی، راه‌ها و دسترسی‌ها <span>04</span></summary>
+              <ul class="q-list">
+                <li>بررسی و اظهارنظر در امور و مقررات شهرسازی و طرح‌های جامع، تفصیلی و هادی</li>
                 <li>تشخیص اراضی دایر، بایر و موات از نظر ساختمانی</li>
                 <li>امور مربوط به راه‌ها و باندهای فرودگاهی و دسترسی‌های شهری</li>
               </ul>
-            </div>
+            </details>
 
-            <div class="panel-content" id="tab-contract">
-              <span class="panel-kicker">اختلافات تخصصی پروژه</span>
-              <h3>برای اختلافات کارفرما، مشاور و پیمانکار در پروژه‌های راه و ساختمان.</h3>
-              <p>وقتی موضوع پرونده به قرارداد، صورت‌وضعیت، کیفیت اجرا، تأخیر، هزینه، تغییرات یا ضوابط پیمان مربوط باشد، تحلیل کارشناسی باید منظم و مستند انجام شود.</p>
-              <ul class="qualification-list">
-                <li>رسیدگی به اختلافات کارفرما و مشاور و پیمانکار در امور تخصصی مربوط به راه و ساختمان</li>
-                <li>بررسی انواع پیمان‌های بخش دولتی و مشمول ضوابط و مقررات سازمان برنامه و بودجه</li>
-                <li>تحلیل فنی روند اجرا، پیشرفت، صورت‌وضعیت، کیفیت انجام کار و مستندات قراردادی</li>
+            <details>
+              <summary>اختلافات کارفرما، مشاور و پیمانکار <span>05</span></summary>
+              <ul class="q-list">
+                <li>رسیدگی به اختلافات کارفرما، مشاور و پیمانکار در امور تخصصی راه و ساختمان، از جمله پیمان‌های بخش دولتی و مشمول ضوابط و مقررات سازمان برنامه و بودجه</li>
               </ul>
-            </div>
+            </details>
           </div>
         </div>
       </div>
@@ -1311,56 +1134,53 @@
       <div class="container">
         <div class="section-head reveal">
           <div>
-            <span class="eyebrow">فرآیند همکاری</span>
-            <h2>پرونده از اول با نظم کارشناسی جلو می‌رود.</h2>
+            <span class="eyebrow">فرآیند انجام کار</span>
+            <h2>از شرح اولیه موضوع تا جمع‌بندی کارشناسی قابل اتکا.</h2>
           </div>
-          <p>هدف این نیست فقط یک متن آماده تحویل شود؛ ابتدا موضوع دقیق می‌شود، بعد مدارک و وضعیت میدانی کنار هم قرار می‌گیرند، سپس محاسبه و تحلیل انجام می‌شود.</p>
+          <p>هر پرونده ابتدا از نظر موضوع، مدارک و حدود صلاحیت بررسی می‌شود؛ سپس در صورت نیاز، بازدید، برداشت، محاسبه و تنظیم جمع‌بندی انجام می‌گیرد.</p>
         </div>
 
-        <div class="process-wrap reveal">
+        <div class="process-layout reveal">
           <aside class="process-card">
-            <span class="eyebrow">پرونده کامل‌تر، نظر دقیق‌تر</span>
-            <h3>برای شروع، موضوع و مدارک را مرتب می‌کنیم.</h3>
-            <p>اگر مدارک کامل نباشد، مسیر بررسی مشخص می‌شود؛ اگر نیاز به بازدید، عکس، نقشه، قرارداد یا صورت‌وضعیت باشد، پیش از تحلیل نهایی جمع‌آوری و کنترل می‌شود.</p>
-            <div class="doc-chips">
-              <span>سند و مدارک ملک</span>
-              <span>قرارداد و پیمان</span>
+            <span class="eyebrow">مدارک منظم، بررسی دقیق‌تر</span>
+            <h3>قبل از شروع، موضوع پرونده و محدوده بررسی مشخص می‌شود.</h3>
+            <p>نوع خواسته، محل ملک یا پروژه، مدارک موجود، وضعیت فعلی و فوریت زمانی بررسی می‌شود تا مسیر کارشناسی شفاف و قابل پیگیری باشد.</p>
+            <div class="doc-tags">
+              <span>اسناد و مدارک ملک</span>
+              <span>قرارداد یا پیمان</span>
               <span>نقشه و صورت‌وضعیت</span>
               <span>عکس و مستندات</span>
               <span>بازدید میدانی</span>
             </div>
           </aside>
 
-          <div class="steps">
-            <div class="step">
-              <span class="step-num">01</span>
+          <div class="timeline">
+            <div class="timeline-step">
+              <span class="step-number">01</span>
               <div>
-                <h3>تعریف دقیق موضوع کارشناسی</h3>
-                <p>مشخص می‌شود موضوع پرونده تأمین دلیل، خسارت، اجرت‌المثل، ارزیابی ملک، اختلاف پیمانکاری، شهرسازی یا مورد دیگری است.</p>
+                <h3>تشخیص موضوع و صلاحیت مرتبط</h3>
+                <p>موضوع پرونده با حوزه صلاحیت تطبیق داده می‌شود؛ مانند تأمین دلیل، خسارت، متره، ارزیابی ملک، شهرسازی یا اختلاف پیمانی.</p>
               </div>
             </div>
-
-            <div class="step">
-              <span class="step-num">02</span>
+            <div class="timeline-step">
+              <span class="step-number">02</span>
               <div>
-                <h3>بررسی مدارک و بازدید</h3>
-                <p>مدارک موجود، وضعیت ملک یا پروژه، کیفیت اجرا، پیشرفت فیزیکی، حدود، دسترسی‌ها و نشانه‌های خسارت یا اختلاف کنترل می‌شود.</p>
+                <h3>بررسی مدارک و تعیین نیاز به بازدید</h3>
+                <p>اسناد، قراردادها، نقشه‌ها، عکس‌ها، صورت‌وضعیت‌ها و سوابق موجود بررسی می‌شود و مدارک تکمیلی مورد نیاز اعلام می‌گردد.</p>
               </div>
             </div>
-
-            <div class="step">
-              <span class="step-num">03</span>
+            <div class="timeline-step">
+              <span class="step-number">03</span>
               <div>
-                <h3>محاسبه، تطبیق و تحلیل</h3>
-                <p>بر اساس صلاحیت مرتبط، متره، برآورد، ارزیابی، تعیین اجاره‌بها، اجرت‌المثل، خسارت یا وضعیت فنی پروژه محاسبه می‌شود.</p>
+                <h3>بازدید، برداشت و محاسبات فنی</h3>
+                <p>وضعیت موجود، متراژ، پیشرفت فیزیکی، کیفیت اجرا، خسارت، ارزش‌گذاری یا اجرت‌المثل بر اساس مبانی مشخص بررسی می‌شود.</p>
               </div>
             </div>
-
-            <div class="step">
-              <span class="step-num">04</span>
+            <div class="timeline-step">
+              <span class="step-number">04</span>
               <div>
-                <h3>جمع‌بندی و ارائه نظر</h3>
-                <p>نتیجه با زبان روشن، ساختار قابل پیگیری و اتکا به مشاهدات، مدارک و محاسبات تنظیم می‌شود.</p>
+                <h3>تنظیم جمع‌بندی و اعلام نتیجه</h3>
+                <p>نتیجه بررسی با ادبیات روشن، منظم و مستند آماده می‌شود تا برای تصمیم‌گیری، مذاکره یا ارائه در روند رسیدگی قابل استفاده باشد.</p>
               </div>
             </div>
           </div>
@@ -1368,27 +1188,19 @@
       </div>
     </section>
 
-    <section class="section note">
-      <div class="container note-inner">
-        <div class="reveal">
-          <span class="eyebrow">چرا دقت مهم است؟</span>
-          <h2>در پرونده‌های راه و ساختمان، یک برداشت اشتباه می‌تواند عدد نهایی را تغییر دهد.</h2>
-          <p>متراژ، کیفیت اجرا، نوع کاربری، قدمت بنا، حدود ملک، وضعیت زمین، میزان پیشرفت، نرخ اجاره، اجرت‌المثل، سرقفلی و مفاد پیمان همگی می‌توانند در نتیجه اثر بگذارند. بنابراین طراحی سایت هم باید همین حس نظم، دقت و اعتماد را منتقل کند.</p>
+    <section class="section confidence">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">مبنای دقت در گزارش</span>
+            <h2>در کارشناسی راه و ساختمان، جزئیات فنی می‌توانند نتیجه را تغییر دهند.</h2>
+          </div>
+          <p>متراژ، قدمت بنا، کیفیت اجرا، وضعیت زمین، نوع کاربری، شرایط بهره‌برداری، بازار اجاره، سرقفلی، صورت‌وضعیت و مفاد پیمان هرکدام می‌توانند در نتیجه کارشناسی اثرگذار باشند.</p>
         </div>
-
-        <div class="note-points reveal">
-          <div class="note-point">
-            <span>مشاهده و مستندات قبل از قضاوت</span>
-            <strong>01</strong>
-          </div>
-          <div class="note-point">
-            <span>محاسبه و برآورد با مبنای مشخص</span>
-            <strong>02</strong>
-          </div>
-          <div class="note-point">
-            <span>گزارش قابل فهم برای تصمیم‌گیری</span>
-            <strong>03</strong>
-          </div>
+        <div class="confidence-list reveal">
+          <div><strong>01</strong>مشاهده، ثبت وضعیت و بررسی مستندات پیش از اظهارنظر</div>
+          <div><strong>02</strong>محاسبه، ارزیابی و برآورد با مبانی روشن و قابل پیگیری</div>
+          <div><strong>03</strong>جمع‌بندی منظم برای تصمیم‌گیری، مذاکره یا ارائه در پرونده</div>
         </div>
       </div>
     </section>
@@ -1397,54 +1209,34 @@
       <div class="container">
         <div class="contact-box reveal">
           <div class="contact-info">
-            <span class="eyebrow">شروع بررسی</span>
-            <h2>موضوع کارشناسی را کوتاه بفرستید.</h2>
-            <p>برای بررسی اولیه، نوع موضوع، محل ملک یا پروژه، مدارک موجود و فوریت زمانی را بنویسید. شماره و آدرس‌های زیر فعلاً نمونه‌اند و باید با اطلاعات واقعی جایگزین شوند.</p>
+            <span class="eyebrow">درخواست بررسی اولیه</span>
+            <h2>موضوع کارشناسی را دقیق و کوتاه ارسال کنید.</h2>
+            <p>برای شروع، نوع خواسته، نشانی کلی ملک یا پروژه، مدارک موجود، وضعیت فعلی و فوریت زمانی را بنویسید تا امکان بررسی اولیه و اعلام مسیر انجام کار فراهم شود.</p>
             <div class="contact-lines">
-              <div class="contact-line"><span>ت</span><bdi dir="ltr">+98 912 000 0000</bdi></div>
-              <div class="contact-line"><span>و</span><bdi dir="ltr">+98 912 000 0000</bdi></div>
-              <div class="contact-line"><span>م</span><span>info@eng-gholami.com</span></div>
-              <div class="contact-line"><span>آ</span><span>استان محل صدور پروانه</span></div>
+              <div><bdi dir="ltr">+98 912 000 0000</bdi></div>
+              <div><bdi dir="ltr">info@eng-gholami.com</bdi></div>
+              <div>حوزه فعالیت: استان محل صدور پروانه کارشناس</div>
             </div>
           </div>
-
           <form class="contact-form" onsubmit="event.preventDefault(); alert('درخواست شما به صورت آزمایشی ثبت شد.');">
             <div class="form-grid">
-              <div class="field">
-                <label for="name">نام و نام خانوادگی</label>
-                <input id="name" type="text" required placeholder="مثلاً علی رضایی" />
-              </div>
-
-              <div class="field">
-                <label for="phone">شماره تماس</label>
-                <input id="phone" type="tel" required dir="ltr" placeholder="+98 912 000 0000" />
-              </div>
-
-              <div class="field">
-                <label for="caseType">نوع موضوع</label>
+              <div class="field"><label for="name">نام و نام خانوادگی</label><input id="name" required placeholder="مثلاً علی رضایی" /></div>
+              <div class="field"><label for="phone">شماره تماس</label><input id="phone" required dir="ltr" placeholder="+98 912 000 0000" /></div>
+              <div class="field full">
+                <label for="caseType">موضوع کارشناسی</label>
                 <select id="caseType" required>
                   <option value="">انتخاب کنید</option>
-                  <option>تأمین دلیل و تبیین وضعیت</option>
-                  <option>ارزیابی خسارت</option>
-                  <option>متره و برآورد</option>
-                  <option>اجاره‌بها، اجرت‌المثل یا سرقفلی</option>
+                  <option>تأمین دلیل یا تبیین وضعیت موجود</option>
+                  <option>ارزیابی و برآورد خسارت</option>
+                  <option>متره، برآورد یا تعیین هزینه‌ها</option>
+                  <option>اجاره‌بها، اجرت‌المثل، ملکیت یا سرقفلی</option>
                   <option>اختلاف کارفرما، مشاور یا پیمانکار</option>
-                  <option>شهرسازی، اراضی یا دسترسی</option>
+                  <option>شهرسازی، اراضی، راه یا دسترسی</option>
                 </select>
               </div>
-
-              <div class="field">
-                <label for="location">محل ملک یا پروژه</label>
-                <input id="location" type="text" placeholder="شهر / منطقه / محدوده" />
-              </div>
-
-              <div class="field full">
-                <label for="message">توضیح کوتاه</label>
-                <textarea id="message" required placeholder="موضوع، مرحله فعلی، مدارک موجود و فوریت زمانی را کوتاه بنویسید..."></textarea>
-              </div>
+              <div class="field full"><label for="message">شرح کوتاه موضوع</label><textarea id="message" required placeholder="موضوع پرونده، محل ملک یا پروژه، مدارک موجود، مرحله فعلی و فوریت زمانی را کوتاه بنویسید..."></textarea></div>
             </div>
-
-            <button class="btn btn-primary" type="submit">ارسال درخواست بررسی</button>
+            <button class="btn btn-primary" type="submit">ارسال درخواست بررسی اولیه</button>
           </form>
         </div>
       </div>
@@ -1452,12 +1244,9 @@
   </main>
 
   <footer class="footer">
-    <div class="container footer-row">
-      <div>
-        <strong>مهندس محمد غلامی</strong>
-        <span>کارشناس رسمی رشته راه و ساختمان — تأمین دلیل، ارزیابی، متره و برآورد، اجرت‌المثل و اختلافات عمرانی</span>
-      </div>
-      <span>© 2026</span>
+    <div class="container">
+      <strong>مهندس محمد غلامی</strong>
+      <span>کارشناس رسمی دادگستری در رشته راه و ساختمان — تأمین دلیل، ارزیابی، متره و برآورد، اجرت‌المثل و اختلافات عمرانی</span>
     </div>
   </footer>
 
@@ -1466,12 +1255,12 @@
     const menuToggle = document.getElementById("menu-toggle");
     const navLinks = document.getElementById("nav-links");
 
-    function syncHeader() {
-      header.classList.toggle("is-scrolled", window.scrollY > 24);
+    function updateHeader() {
+      header.classList.toggle("is-scrolled", window.scrollY > 18);
     }
 
-    window.addEventListener("scroll", syncHeader, { passive: true });
-    syncHeader();
+    window.addEventListener("scroll", updateHeader, { passive: true });
+    updateHeader();
 
     menuToggle.addEventListener("click", () => {
       navLinks.classList.toggle("is-open");
@@ -1485,18 +1274,6 @@
       });
     });
 
-    const tabButtons = document.querySelectorAll(".tab-btn");
-    const panels = document.querySelectorAll(".panel-content");
-
-    tabButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        tabButtons.forEach((item) => item.classList.remove("is-active"));
-        panels.forEach((panel) => panel.classList.remove("is-active"));
-        button.classList.add("is-active");
-        document.getElementById(button.dataset.tab).classList.add("is-active");
-      });
-    });
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -1504,9 +1281,9 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.16 });
+    }, { threshold: 0.14 });
 
-    document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
   </script>
 </body>
 </html>

@@ -4128,6 +4128,500 @@
         grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
       }
     }
+
+
+    /* MOBILE UX CLEANUP PATCH — compact hero, Firefox skip-link fix, light-mode menu visibility */
+    .skip-link {
+      top: calc(env(safe-area-inset-top, 0px) + 12px) !important;
+      inset-inline-start: 12px !important;
+      z-index: 10050 !important;
+      max-width: calc(100vw - 24px) !important;
+      line-height: 1.55 !important;
+      box-shadow: 0 12px 34px rgba(0,0,0,.22) !important;
+    }
+
+    .skip-link:not(:focus) {
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0 0 0 0) !important;
+      clip-path: inset(50%) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+      transform: none !important;
+      opacity: 0 !important;
+    }
+
+    .skip-link:focus,
+    .skip-link:focus-visible {
+      width: auto !important;
+      height: auto !important;
+      padding: 10px 14px !important;
+      margin: 0 !important;
+      overflow: visible !important;
+      clip: auto !important;
+      clip-path: none !important;
+      transform: none !important;
+      opacity: 1 !important;
+      outline: 3px solid rgba(212,175,55,.38) !important;
+      outline-offset: 3px !important;
+    }
+
+    .menu-toggle {
+      flex: 0 0 auto;
+      align-items: center;
+      justify-content: center;
+      color: #fff !important;
+      background: rgba(255,255,255,.10) !important;
+      border-color: rgba(255,255,255,.22) !important;
+      line-height: 1 !important;
+      font-size: 1.25rem !important;
+      font-weight: 900 !important;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.04) !important;
+    }
+
+    .menu-toggle[aria-expanded="true"] {
+      color: #070b14 !important;
+      background: linear-gradient(135deg, #fff0b3, var(--gold)) !important;
+      border-color: rgba(212,175,55,.45) !important;
+    }
+
+    html[data-theme="light"] .menu-toggle {
+      color: #111827 !important;
+      background: rgba(255,255,255,.94) !important;
+      border-color: rgba(17,24,39,.24) !important;
+      box-shadow: 0 8px 22px rgba(17,24,39,.10), inset 0 0 0 1px rgba(255,255,255,.55) !important;
+    }
+
+    html[data-theme="light"] .menu-toggle:hover,
+    html[data-theme="light"] .menu-toggle:focus-visible,
+    html[data-theme="light"] .menu-toggle[aria-expanded="true"] {
+      color: #111827 !important;
+      background: linear-gradient(135deg, #fff4c7, var(--gold)) !important;
+      border-color: rgba(185,134,61,.48) !important;
+    }
+
+    @media (max-width: 760px) {
+      .skip-link:focus,
+      .skip-link:focus-visible {
+        inset-inline: 12px !important;
+        max-width: none !important;
+        text-align: center !important;
+        border-radius: 16px !important;
+      }
+
+      .site-header {
+        inset-block-start: calc(env(safe-area-inset-top, 0px) + 8px) !important;
+      }
+
+      .nav {
+        overflow: visible !important;
+        min-height: 58px !important;
+        border-radius: 22px !important;
+      }
+
+      .nav-links {
+        z-index: 250 !important;
+        top: calc(100% + 10px) !important;
+        inset-inline: 0 !important;
+        max-height: calc(100svh - 96px) !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+      }
+
+      html[data-theme="light"] .nav-links {
+        color: #111827 !important;
+        background: rgba(255,250,242,.985) !important;
+        border-color: rgba(17,24,39,.16) !important;
+        box-shadow: 0 22px 54px rgba(17,24,39,.18) !important;
+      }
+
+      html[data-theme="light"] .nav-links a {
+        color: #111827 !important;
+      }
+
+      .hero {
+        min-height: auto !important;
+        padding: calc(env(safe-area-inset-top, 0px) + 82px) 0 26px !important;
+      }
+
+      .hero-bg {
+        background-position: center !important;
+        animation: none !important;
+      }
+
+      .hero::before {
+        opacity: .72 !important;
+        background-size: auto, auto, 92px 92px, 92px 92px !important;
+      }
+
+      .hero-grid {
+        display: block !important;
+      }
+
+      .hero-copy {
+        max-width: 100% !important;
+        padding: 20px 16px 18px !important;
+        border: 1px solid rgba(255,255,255,.15) !important;
+        border-radius: 24px !important;
+        background: linear-gradient(180deg, rgba(7,11,20,.78), rgba(7,11,20,.62)) !important;
+        box-shadow: 0 22px 54px rgba(0,0,0,.22) !important;
+        text-align: center !important;
+      }
+
+      html[data-theme="light"] .hero-copy {
+        border-color: rgba(17,24,39,.12) !important;
+        background: linear-gradient(180deg, rgba(255,250,242,.90), rgba(255,250,242,.78)) !important;
+        box-shadow: 0 18px 42px rgba(17,24,39,.13) !important;
+      }
+
+      .hero .eyebrow {
+        margin-inline: auto !important;
+        justify-content: center !important;
+        font-size: .72rem !important;
+        line-height: 1.55 !important;
+      }
+
+      .hero h1 {
+        max-width: 20rem !important;
+        margin: 8px auto 0 !important;
+        font-size: clamp(1.36rem, 6.25vw, 1.92rem) !important;
+        line-height: 1.34 !important;
+        text-align: center !important;
+        text-wrap: balance !important;
+      }
+
+      .hero h1 .gold-text {
+        display: block !important;
+        margin-top: 2px !important;
+      }
+
+      .hero-lead {
+        max-width: 22rem !important;
+        margin: 10px auto 0 !important;
+        color: rgba(255,255,255,.78) !important;
+        font-size: .86rem !important;
+        line-height: 1.72 !important;
+        text-align: center !important;
+        text-align-last: auto !important;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 2 !important;
+        -webkit-box-orient: vertical !important;
+        overflow: hidden !important;
+      }
+
+      html[data-theme="light"] .hero-lead {
+        color: #344054 !important;
+      }
+
+      .hero-actions {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 9px !important;
+        margin-top: 16px !important;
+      }
+
+      .hero-actions .btn {
+        width: 100% !important;
+        min-height: 44px !important;
+        border-radius: 16px !important;
+        font-size: .84rem !important;
+      }
+
+      .trust-pills,
+      .hero-visual,
+      .hero-proof {
+        display: none !important;
+      }
+
+      .intro {
+        margin-top: 0 !important;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .brand {
+        font-size: .82rem !important;
+      }
+
+      .hero-copy {
+        padding-inline: 14px !important;
+      }
+
+      .hero h1 {
+        font-size: 1.28rem !important;
+      }
+
+      .hero-lead {
+        font-size: .82rem !important;
+      }
+    }
+
+
+
+    /* FINAL POLISH: softer, more user-friendly mobile corner radius */
+    @media (max-width: 760px) {
+      .nav,
+      .nav-links,
+      .menu-toggle,
+      .icon-btn,
+      .hero-copy,
+      .hero-frame,
+      .intro-card,
+      .visual-panel,
+      .about-image,
+      .about-copy,
+      .expertise-note,
+      details.expertise-item,
+      .process-visual,
+      .process-step,
+      .documents-board,
+      .contact-box,
+      .contact-card,
+      .contact-tip,
+      .footer-grid > div {
+        border-radius: 28px !important;
+      }
+
+      .hero-copy {
+        border-radius: 34px !important;
+        box-shadow: 0 26px 58px rgba(0, 0, 0, .18) !important;
+      }
+
+      html[data-theme="light"] .hero-copy {
+        box-shadow: 0 20px 44px rgba(17, 24, 39, .10) !important;
+      }
+
+      .hero-actions .btn,
+      .btn,
+      .btn-primary,
+      .btn-outline,
+      .btn-soft {
+        border-radius: 24px !important;
+      }
+
+      .hero-actions .btn {
+        min-height: 52px !important;
+      }
+
+      .service-card,
+      .document-list li,
+      .feature-list li,
+      .hero-proof,
+      .hero-proof div,
+      .identity-badge,
+      .floating-note {
+        border-radius: 24px !important;
+      }
+
+      .trust-pills span {
+        border-radius: 18px !important;
+      }
+    }
+
+
+    /* V3: explicit light-mode mobile polish */
+    @media (max-width: 760px) {
+      html[data-theme="light"] .hero-copy {
+        border-radius: 36px !important;
+        overflow: hidden !important;
+        border: 1px solid rgba(185, 134, 61, .20) !important;
+        background:
+          linear-gradient(180deg, rgba(255, 250, 242, .94), rgba(255, 246, 232, .84)) !important;
+        box-shadow:
+          0 24px 58px rgba(17, 24, 39, .11),
+          inset 0 1px 0 rgba(255, 255, 255, .70) !important;
+        backdrop-filter: blur(14px) !important;
+      }
+
+      html[data-theme="light"] .hero-copy::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        pointer-events: none;
+        background:
+          radial-gradient(circle at 50% 0%, rgba(255, 255, 255, .70), transparent 58%),
+          radial-gradient(circle at 18% 18%, rgba(185, 134, 61, .09), transparent 42%);
+      }
+
+      .hero-copy {
+        position: relative !important;
+      }
+
+      .hero-copy > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      html[data-theme="light"] .hero .eyebrow {
+        color: #7a4f17 !important;
+        background: rgba(255, 255, 255, .54) !important;
+        border: 1px solid rgba(185, 134, 61, .24) !important;
+        border-radius: 999px !important;
+        padding: 8px 13px !important;
+        box-shadow: 0 10px 24px rgba(17, 24, 39, .07) !important;
+      }
+
+      html[data-theme="light"] .hero h1 {
+        color: #101828 !important;
+      }
+
+      html[data-theme="light"] .gold-text {
+        background: linear-gradient(90deg, #9a621e, #c78a2f 55%, #80551c) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+      }
+
+      html[data-theme="light"] .hero-lead {
+        color: #344054 !important;
+      }
+
+      html[data-theme="light"] .hero-actions .btn,
+      html[data-theme="light"] .hero-actions .btn-primary,
+      html[data-theme="light"] .hero-actions .btn-outline {
+        border-radius: 26px !important;
+        overflow: hidden !important;
+      }
+
+      html[data-theme="light"] .hero-actions .btn-primary {
+        color: #111827 !important;
+        border: 1px solid rgba(185, 134, 61, .24) !important;
+        background: linear-gradient(135deg, #fff0b3 0%, #d7a34d 54%, #bf8430 100%) !important;
+        box-shadow: 0 16px 34px rgba(185, 134, 61, .22) !important;
+      }
+
+      html[data-theme="light"] .hero-actions .btn-outline {
+        color: #101828 !important;
+        border: 1px solid rgba(185, 134, 61, .28) !important;
+        background: rgba(255, 255, 255, .56) !important;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.74), 0 12px 26px rgba(17,24,39,.06) !important;
+      }
+
+      html[data-theme="light"] .nav,
+      html[data-theme="light"] .nav-links {
+        border-radius: 30px !important;
+        border-color: rgba(185, 134, 61, .18) !important;
+        background: rgba(255, 250, 242, .94) !important;
+        box-shadow: 0 16px 34px rgba(17, 24, 39, .10) !important;
+      }
+
+      html[data-theme="light"] .menu-toggle,
+      html[data-theme="light"] .icon-btn {
+        color: #101828 !important;
+        border-color: rgba(185, 134, 61, .24) !important;
+        background: rgba(255, 255, 255, .62) !important;
+      }
+
+      html[data-theme="light"] .intro-card,
+      html[data-theme="light"] .intro-card > div,
+      html[data-theme="light"] .service-card,
+      html[data-theme="light"] .about-copy,
+      html[data-theme="light"] .process-step,
+      html[data-theme="light"] .documents-board,
+      html[data-theme="light"] .contact-box,
+      html[data-theme="light"] .contact-card {
+        border-radius: 28px !important;
+      }
+    }
+
+
+
+    /* V5: refined mobile light eyebrow polish */
+    @media (max-width: 760px) {
+      html[data-theme="light"] .hero .eyebrow {
+        position: relative !important;
+        isolation: isolate !important;
+        width: fit-content !important;
+        max-width: min(100%, 24rem) !important;
+        margin-inline: auto !important;
+        padding: 9px 16px !important;
+        border-radius: 999px !important;
+        color: #141821 !important;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, .88), rgba(255, 247, 232, .74)) !important;
+        border: 1px solid rgba(185, 134, 61, .28) !important;
+        box-shadow:
+          0 18px 34px rgba(0, 0, 0, .16),
+          0 2px 0 rgba(255, 255, 255, .78) inset,
+          0 -1px 0 rgba(185, 134, 61, .10) inset !important;
+        text-shadow: none !important;
+        backdrop-filter: blur(14px) saturate(1.08) !important;
+        -webkit-backdrop-filter: blur(14px) saturate(1.08) !important;
+      }
+
+      html[data-theme="light"] .hero .eyebrow::before {
+        display: none !important;
+      }
+
+      html[data-theme="light"] .hero .eyebrow::after {
+        content: "" !important;
+        position: absolute !important;
+        inset: 8px 12px -8px !important;
+        z-index: -1 !important;
+        border-radius: inherit !important;
+        background: rgba(0, 0, 0, .18) !important;
+        filter: blur(14px) !important;
+        opacity: .55 !important;
+        pointer-events: none !important;
+      }
+
+      html[data-theme="light"] .hero-copy {
+        border-radius: 36px !important;
+        background:
+          linear-gradient(180deg, rgba(255, 252, 246, .91), rgba(255, 246, 232, .78)) !important;
+        border-color: rgba(185, 134, 61, .18) !important;
+      }
+
+      html[data-theme="light"] .hero h1 {
+        color: #0f172a !important;
+      }
+
+      html[data-theme="light"] .hero-lead {
+        color: #344054 !important;
+      }
+    }
+
+
+    /* V6: final mobile light eyebrow contrast fix */
+    @media (max-width: 760px) {
+      html[data-theme="light"] .hero .eyebrow {
+        color: #111827 !important;
+        font-weight: 950 !important;
+        letter-spacing: -.015em !important;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, .96), rgba(255, 249, 239, .90)) !important;
+        border: 1px solid rgba(190, 137, 55, .34) !important;
+        border-radius: 999px !important;
+        box-shadow:
+          0 14px 32px rgba(17, 24, 39, .14),
+          inset 0 1px 0 rgba(255, 255, 255, .86),
+          inset 0 -1px 0 rgba(190, 137, 55, .10) !important;
+        text-shadow: none !important;
+        -webkit-text-fill-color: #111827 !important;
+        backdrop-filter: blur(16px) saturate(1.08) !important;
+        -webkit-backdrop-filter: blur(16px) saturate(1.08) !important;
+      }
+
+      html[data-theme="light"] .hero .eyebrow::before {
+        display: none !important;
+      }
+
+      html[data-theme="light"] .hero .eyebrow::after {
+        content: "" !important;
+        position: absolute !important;
+        inset: 9px 16px -9px !important;
+        z-index: -1 !important;
+        border-radius: inherit !important;
+        background: rgba(17, 24, 39, .16) !important;
+        filter: blur(15px) !important;
+        opacity: .45 !important;
+        pointer-events: none !important;
+      }
+    }
 </style></head><body><div aria-hidden="true" class="preloader" id="preloader"><div class="loader-mark"><div class="loader-ring"></div><span data-i18n="brandName">مهندس محمد غلامی</span></div></div><div aria-hidden="true" class="cursor-dot" id="cursor-dot"></div><div aria-hidden="true" class="cursor-ring" id="cursor-ring"></div><a class="skip-link" data-i18n="skip" href="#content">رفتن به محتوای اصلی</a><header class="site-header" id="site-header"><nav aria-label="ناوبری اصلی" class="nav"><a aria-label="صفحه اصلی" class="brand" href="#home"><span aria-hidden="true" class="brand-mark"><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24"><path d="M4 20h16"></path><path d="M7 20V8.5L12 4l5 4.5V20"></path><path d="M9.25 20v-5.5h5.5V20"></path><path d="M9.5 11h5"></path></svg></span><span><span data-i18n="brandName">مهندس محمد غلامی</span><small data-i18n="brandSub">کارشناس رسمی دادگستری | راه و ساختمان</small></span></a><ul class="nav-links" id="nav-links"><li><a data-i18n="navServices" href="#services">خدمات</a></li><li><a data-i18n="navAbout" href="#about">معرفی</a></li><li><a data-i18n="navExpertise" href="#expertise">صلاحیت‌ها</a></li><li><a data-i18n="navProcess" href="#process">فرآیند</a></li><li><a data-i18n="navDocuments" href="#documents">مدارک لازم</a></li><li><a data-i18n="navContact" href="#contact">تماس</a></li></ul><div class="nav-actions"><button aria-label="Toggle theme" class="icon-btn" id="theme-toggle" type="button"><span class="symbol" id="theme-symbol">☀</span><span class="text" data-i18n="themeLight">روشن</span></button><button aria-label="Switch language" class="icon-btn" id="lang-toggle" type="button"><span class="symbol">EN</span></button><a class="btn btn-primary" data-i18n="navCta" href="#contact">هماهنگی بررسی اولیه</a><button aria-controls="nav-links" aria-expanded="false" aria-label="باز کردن منو" class="menu-toggle" id="menu-toggle" type="button">☰</button></div></nav></header><main id="content"><section class="hero" id="home"><div aria-hidden="true" class="hero-bg"></div><div class="container hero-grid"><div class="hero-copy reveal"><span class="eyebrow" data-i18n="heroEyebrow">کارشناس رسمی دادگستری در رشته راه و ساختمان</span><h1><span data-i18n="heroTitleA">بررسی فنی، ارزیابی و اظهارنظر</span><span class="gold-text" data-i18n="heroTitleGold">مستند</span><span data-i18n="heroTitleB">برای پرونده‌های ملکی و ساختمانی</span></h1><p class="hero-lead" data-i18n="heroLead">
             تأمین دلیل، ارزیابی ملک، برآورد خسارت، متره و برآورد، اجرت‌المثل و اختلافات پیمانکاری؛ با تمرکز بر دقت و مستندسازی.
           </p><div class="hero-actions"><a class="btn btn-primary" data-i18n="heroCta" href="#contact">دریافت راهنمایی اولیه</a><a class="btn btn-outline" data-i18n="heroSecondary" href="#services">مشاهده حوزه‌های خدمات</a></div><div aria-label="ویژگی‌های بررسی" class="trust-pills"><span data-i18n="pill1">✓ بررسی مدارک و مستندات</span><span data-i18n="pill2">✓ بازدید میدانی در صورت نیاز</span><span data-i18n="pill3">✓ جمع‌بندی فنی و قابل پیگیری</span></div></div><aside aria-label="معرفی کوتاه" class="hero-visual reveal"><div class="hero-frame"></div><div class="identity-badge"><div aria-hidden="true" class="seal"><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24"><path d="M12 3l7 4v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V7l7-4z"></path><path d="M9.2 12.2l1.8 1.8 4-4"></path></svg></div><h2 data-i18n="brandName">مهندس محمد غلامی</h2><p data-i18n="heroEyebrow">کارشناس رسمی دادگستری در رشته راه و ساختمان</p></div><div class="floating-note"><strong data-i18n="floatingTitle">مسیر بررسی روشن و مستند</strong><span data-i18n="floatingText">تشخیص موضوع، بررسی مدارک، بازدید در صورت نیاز و جمع‌بندی فنی.</span></div></aside></div><div aria-label="خلاصه خدمات" class="hero-proof reveal"><div><strong data-i18n="proof1Title">حوزه تخصص</strong><span data-i18n="proof1Text">راه و ساختمان</span></div><div><strong data-i18n="proof2Title">نوع خدمات</strong><span data-i18n="proof2Text">کارشناسی، ارزیابی، برآورد</span></div><div><strong data-i18n="proof3Title">حوزه فعالیت</strong><span>TODO_REGION</span></div><div><strong data-i18n="proof4Title">رویکرد بررسی</strong><span data-i18n="proof4Text">دقیق، مستند و قابل پیگیری</span></div></div></section><section class="intro"><div class="container"><div class="intro-card reveal"><div><span class="eyebrow" data-i18n="introEyebrow">نگاه کارشناسی</span><h2 data-i18n="introTitle">وقتی تصمیم حقوقی یا مالی به بررسی فنی قابل استناد نیاز دارد.</h2></div><div><p data-i18n="introText">
@@ -4291,4 +4785,60 @@
     } else {
       revealItems.forEach((item) => item.classList.add("is-visible"));
     }
+</script>
+<script>
+  /* Compact mobile hero copy: keeps the desktop copy intact, but prevents text overload on phones. */
+  (function () {
+    const h1 = document.querySelector(".hero h1");
+    const lead = document.querySelector(".hero-lead");
+    if (!h1 || !lead) return;
+
+    const copies = {
+      fa: {
+        desktopA: "بررسی فنی، ارزیابی و اظهارنظر",
+        desktopGold: "مستند",
+        desktopB: "برای پرونده‌های ملکی و ساختمانی",
+        desktopLead: "تأمین دلیل، ارزیابی ملک، برآورد خسارت، متره و برآورد، اجرت‌المثل و اختلافات پیمانکاری؛ با تمرکز بر دقت و مستندسازی.",
+        mobileA: "کارشناسی رسمی",
+        mobileGold: "راه و ساختمان",
+        mobileB: "",
+        mobileLead: "ارزیابی، تأمین دلیل و برآورد خسارت؛ سریع، روشن و مستند."
+      },
+      en: {
+        desktopA: "Technical review, valuation and",
+        desktopGold: "documented expert opinion",
+        desktopB: "for property and construction cases",
+        desktopLead: "Evidence preservation, property valuation, damage assessment, quantity surveying, cost estimation, usufruct and construction disputes.",
+        mobileA: "Official expert review",
+        mobileGold: "Road & Building",
+        mobileB: "",
+        mobileLead: "Valuation, evidence preservation and damage assessment—clear and documented."
+      }
+    };
+
+    const mq = window.matchMedia("(max-width: 760px)");
+    const esc = (value) => String(value).replace(/[&<>\"]/g, (ch) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]));
+
+    function renderHeroCopy() {
+      const lang = document.documentElement.lang === "en" ? "en" : "fa";
+      const copy = copies[lang];
+      if (mq.matches) {
+        h1.innerHTML = '<span>' + esc(copy.mobileA) + '</span><span class="gold-text">' + esc(copy.mobileGold) + '</span>' + (copy.mobileB ? '<span>' + esc(copy.mobileB) + '</span>' : '');
+        lead.textContent = copy.mobileLead;
+      } else {
+        h1.innerHTML = '<span data-i18n="heroTitleA">' + esc(copy.desktopA) + '</span><span class="gold-text" data-i18n="heroTitleGold">' + esc(copy.desktopGold) + '</span><span data-i18n="heroTitleB">' + esc(copy.desktopB) + '</span>';
+        lead.textContent = copy.desktopLead;
+      }
+    }
+
+    renderHeroCopy();
+    if (mq.addEventListener) mq.addEventListener("change", renderHeroCopy);
+    else if (mq.addListener) mq.addListener(renderHeroCopy);
+    window.addEventListener("resize", renderHeroCopy, { passive: true });
+    const langButton = document.getElementById("lang-toggle");
+    const mobileLangButton = document.getElementById("mobile-lang-toggle");
+    if (langButton) langButton.addEventListener("click", () => window.setTimeout(renderHeroCopy, 0));
+    if (mobileLangButton) mobileLangButton.addEventListener("click", () => window.setTimeout(renderHeroCopy, 0));
+    new MutationObserver(renderHeroCopy).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
+  })();
 </script></body></html>
